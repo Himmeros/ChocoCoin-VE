@@ -1,71 +1,64 @@
-    # Acá empezamos a compilar
-    # Tanto demonio como Qt
     # Proyectos Himmeros
     # sistemas_que_funcionan_
-    # versión 0.1
+    # 012022
+    # Versión 0.5
 
     # Ya debes tener git instalado para efectuar la clonación a lo
     # Resident Evil ><
 
-        # Proyectos Himmeros
-    # sistemas_que_funcionan_
-    # 012022
-    # VersiÃ³n 0.5
-
-    # 1Â° Instalo git
+    # 1° Instalo git
 sudo apt -y install git
 
-    # 2Â° Descargo Chococoin desde su repositorio y accedo al directorio
-git clone https://github.com/Chococoin/ChocoCoin && cd ChocoCoin
+    # 2° Descargo Chococoin desde su repositorio y accedo al directorio
+git clone https://github.com/Himmeros/ChocoCoin-VE/ && cd ChocoCoin-VE
 
-    # 3Â° Scripts de librerÃ­as necesarias para compilar ChocoCoin
+    # 3° Scripts de librerías necesarias para compilar ChocoCoin
 sudo apt-get -y install build-essential libboost-all-dev
 
-    # 4Â° Resuelve un error con OpenSSL ya que necesita una versiÃ³n vieja
+    # 4° Resuelve un error con OpenSSL ya que necesita una versión vieja
 
 sudo apt-get -y remove libssl-dev
 sudo apt -y install libssl1.0-dev
 
-    # 5Â° Agrego libdb
+    # 5° Agrego libdb
 
 sudo add-apt-repository -y ppa:bitcoin/bitcoin
 sudo apt-get -y update && sudo apt -y upgrade
 sudo apt-get install -y libdb4.8-dev libdb4.8++-dev
 sudo apt-get install -y libminiupnpc-dev
 
-    # 6Â° Vamos a necesitar memoria, asÃ­ que ampliamos la memoria virtual o swap file
+    # 6° Vamos a necesitar memoria, así­ que ampliamos la memoria virtual o swap file
     # 6.a # Apago y elimino la memoria virtual
 
-sudo swapoff /swapfile 
-sudo rm /swapfile
+sudo swapoff /swapfile && sudo rm /swapfile
 
-    # 7Â° Creo una memoria virtual mÃ¡s grande
+    # 7° Creo una memoria virtual más grande
 
 sudo dd if=/dev/zero of=/swapfile bs=1024 count=4194304
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile && sudo swapon /swapfile
 
-    # 8Â° Corrige un posible error de permisos
+    # 8° Corrige un posible error de permisos
 
 chmod 755 src/leveldb/build_detect_platform
 
-    # 9Â° Y limpio, para que no de errores
+    # 9° Y limpio, para que no de errores
 
 cd src/leveldb 
 make clean
 cd ../..
 
-    # En este punto podemos compilar el demonio
+    # 10° En este punto podemos compilar a Satanás
 cd src
 make -f makefile.unix
 
-    # CompilaciÃ³n Qt4
-    # Instalo las librerÃ­as necesarias para la compilaciÃ³n del monedero Qt
+    # Compilación Qt4
+    # Instalo las librerías necesarias para la compilación del monedero Qt
 
-    # 1Â° LibrerÃ­as Qt4
+    # 1° Librerías Qt4
 sudo apt-get install -y qt4-qmake libqt4-dev
 
-    #2 Compilamos desde ChocoChoin
+    # 2° Compilamos desde ChocoChoin-VE
 qmake && make
 
 # --------------------------------------------------------------------------------- #
